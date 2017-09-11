@@ -15,15 +15,17 @@ export default class Detail extends Component {
 				this.setState({ author: result.data.author })
 				this.setState({ product: result.data.item })
 			})
-  }
+	}
 
 	render() {
+		const product = this.state.product
 		let list = null
-		if (this.state.product !== '') {
-			list = <p>{this.state.product.title} | {this.state.product.price.currency}{this.state.product.price.amount}</p>
+		if (product !== '') {
+			list = <ShowDetail product={product} />
 		} else {
 			list = <p>Cargando...</p>
 		}
+
 		return (
 			<div>
 				<div>DETALLE</div>
@@ -32,4 +34,20 @@ export default class Detail extends Component {
 			</div>
 		)
 	}
+}
+
+class ShowDetail extends Component {
+  render () {
+    return (
+			<div>
+				<img src={this.props.product.picture} /><br/>
+				<div>{this.props.product.condition} - {this.props.product.sold_quantity} vendidos</div>
+				<div>{this.props.product.title}</div>
+				<div>{this.props.product.price.currency} {this.props.product.price.amount} {this.props.product.price.decimals}</div>
+				<div>Comprar</div>
+				<div>Descripción del producto</div>
+				<div>{this.props.product.description}</div>
+			</div>
+		)
+  }
 }

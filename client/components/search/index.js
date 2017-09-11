@@ -6,7 +6,7 @@ export default class Search extends Component {
 			<div>
 				<div>SEARCH</div>
 				<form action="/items" method="get">
-					<input type='text' name='search' />
+					<input type='text' name='search' placeholder='No dejes de buscar' />
 				</form>
 			</div>
 		)

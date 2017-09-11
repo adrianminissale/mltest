@@ -10,6 +10,7 @@ module.exports = function (data) {
     this.categories.push(category.name)
   }
   this.items = []
+  let i = 0
   for (let item of data.results) {
     this.items.push({
       'id': item.id,
@@ -23,5 +24,8 @@ module.exports = function (data) {
       'condition': item.condition,
       'free_shipping': item.shipping.free_shipping
     })
+    if (i++ === 3) {
+      break
+    }
   }
 }
