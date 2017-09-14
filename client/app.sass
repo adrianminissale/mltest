@@ -1,0 +1,33 @@
+@import '_variables'
+
+*
+  box-sizing: border-box
+
+body
+	color: $gray-dark
+	background: $gray-light
+	margin: 0
+	padding: 0
+	font-family: Arial,Helvetica,sans-serif
+
+h1,
+h2
+	margin: 0
+	font-weight: normal
+
+address
+	font-style: normal
+
+.wrapper
+	width: 1043px
+	margin: 0 auto
+	padding: 0 32px
+
+.table
+	display: table
+	& > *
+		display: table-cell
+		vertical-align: top
+
+::-webkit-input-placeholder
+	color: $gray-soft
