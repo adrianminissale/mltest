@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Search from '../search'
+import Breadcrumb from '../breadcrumb'
+
+import styles from './index.sass'
 
 export default class Detail extends Component {
 	constructor(props) {
@@ -28,9 +31,15 @@ export default class Detail extends Component {
 
 		return (
 			<div>
-				<div>DETALLE</div>
 				<Search />
-				{list}
+				<Breadcrumb category='Breadcrumb' />
+				<div id='detail'>
+					<div className='wrapper'>
+						<div className='content'>
+							{list}
+						</div>
+					</div>
+				</div>
 			</div>
 		)
 	}
@@ -39,14 +48,24 @@ export default class Detail extends Component {
 class ShowDetail extends Component {
   render () {
     return (
-			<div>
-				<img src={this.props.product.picture} /><br/>
-				<div>{this.props.product.condition} - {this.props.product.sold_quantity} vendidos</div>
-				<div>{this.props.product.title}</div>
-				<div>{this.props.product.price.currency} {this.props.product.price.amount} {this.props.product.price.decimals}</div>
-				<div>Comprar</div>
-				<div>Descripción del producto</div>
-				<div>{this.props.product.description}</div>
+			<div className='detail'>
+				<div className='table'>
+					<img src={this.props.product.picture} />
+					<div className='text'>
+						<div className='sale-info'>
+							{this.props.product.condition} - {this.props.product.sold_quantity} vendidos
+						</div>
+						<div className='title'>{this.props.product.title}</div>
+						<div className='price'>
+							{this.props.product.price.currency} {this.props.product.price.amount} {/*this.props.product.price.decimals */}
+						</div>
+						<div className='btn'>Comprar</div>
+					</div>
+				</div>
+				<div className='description'>
+					<div className='title'>Descripción del producto</div>
+					<div className='html' dangerouslySetInnerHTML={{ __html: this.props.product.description}}></div>
+				</div>
 			</div>
 		)
   }

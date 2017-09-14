@@ -8,6 +8,7 @@ module.exports = function (data) {
   this.categories = []
   for (let category of data.available_filters[0].values) {
     this.categories.push(category.name)
+    break
   }
   this.items = []
   let i = 0

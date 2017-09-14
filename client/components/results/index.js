@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Search from '../search'
 import Breadcrumb from '../breadcrumb'
 
+import styles from './index.sass'
+
 export default class Results extends Component {
 	constructor(props) {
 		super(props)
@@ -33,10 +35,15 @@ export default class Results extends Component {
 		}
 		return (
 			<div>
-				<div>RESULTADOS</div>
-				<Breadcrumb category={this.state.categories} />
 				<Search />
-				{list}
+				<Breadcrumb category={this.state.categories} />
+				<div id='results'>
+					<div className='wrapper'>
+						<div className='content'>
+							{list}
+						</div>
+					</div>
+				</div>
 			</div>
 		)
 	}
@@ -45,11 +52,16 @@ export default class Results extends Component {
 class ShowDetail extends Component {
   render () {
     return (
-			<div>
-				<a href={'/items/' + this.props.product.id}>
-					<img src={this.props.product.picture} /><br/>
-					<div>{this.props.product.price.currency} {this.props.product.price.amount} {this.props.product.free_shipping}</div>
-					<div>{this.props.product.title}</div>
+			<div className='result'>
+				<a href={'/items/' + this.props.product.id} className='table'>
+					<img src={this.props.product.picture} />
+					<div className='text'>
+						<div className='price'>
+							{this.props.product.price.currency} {this.props.product.price.amount}
+							<div className={'shipping-' + this.props.product.free_shipping}></div>
+						</div>
+						<div className='title'>{this.props.product.title}</div>
+					</div>
 				</a>
 			</div>
 		)
