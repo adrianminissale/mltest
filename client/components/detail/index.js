@@ -46,21 +46,21 @@ class ShowDetail extends Component {
   render () {
 		const description = this.props.product.description_plain !== '' ? this.props.product.description_plain : this.props.product.description
     return (
-			<article className='detail'>
+			<article className='detail' itemscope itemtype="http://schema.org/Product">
 				<div className='table'>
-					<img src={this.props.product.picture} />
+					<img src={this.props.product.picture} itemprop="image" />
 					<div className='text'>
 						<div className='sale-info'>
 							{this.props.product.condition === 'new' ? 'nuevo' : 'usado'} - {this.props.product.sold_quantity} vendidos
 						</div>
-						<h1 className='title'>{this.props.product.title}</h1>
-						<div className='price'>
-							<span data-currency-code={this.props.product.price.currency}>$</span> {this.props.product.price.amount} {/*this.props.product.price.decimals */}
+						<h1 className='title' itemprop="name">{this.props.product.title}</h1>
+						<div className='price' itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+							<div itemprop="price"><span data-currency-code={this.props.product.price.currency}>$</span> {this.props.product.price.amount} {/*this.props.product.price.decimals */}</div>
 						</div>
 						<div className='btn'>Comprar</div>
 					</div>
 				</div>
-				<div className='description'>
+				<div className='description' itemprop="description">
 					<h2 className='title'>Descripción del producto</h2>
 					<div className='html' dangerouslySetInnerHTML={{ __html: description}}></div>
 				</div>

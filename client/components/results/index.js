@@ -54,15 +54,15 @@ export default class Results extends Component {
 class ShowDetail extends Component {
   render () {
     return (
-			<article className='result'>
+			<article className='result' itemscope itemtype="http://schema.org/Product">
 				<a href={'/items/' + this.props.product.id} className='table'>
-					<img src={this.props.product.picture} />
+					<img src={this.props.product.picture} itemprop="image" />
 					<div className='text'>
-						<div className='price'>
-							<span data-currency-code={this.props.product.price.currency}>$</span> {this.props.product.price.amount}
+						<div className='price' itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+							<div itemprop="price"><span data-currency-code={this.props.product.price.currency}>$</span> {this.props.product.price.amount}</div>
 							<div className={'shipping-' + this.props.product.free_shipping}></div>
 						</div>
-						<h2 className='title'>{this.props.product.title}</h2>
+						<h2 className='title' itemprop="name">{this.props.product.title}</h2>
 					</div>
 					<address className='state-name'>{this.props.product.state_name}</address>
 				</a>
