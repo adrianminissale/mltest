@@ -60,10 +60,10 @@ class ShowDetail extends Component {
 						<div className='btn'>Comprar</div>
 					</div>
 				</div>
-				<details className='description'>
+				<div className='description'>
 					<h2 className='title'>Descripción del producto</h2>
 					<div className='html' dangerouslySetInnerHTML={{ __html: description}}></div>
-				</details>
+				</div>
 			</article>
 		)
   }
