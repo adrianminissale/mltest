@@ -37,13 +37,15 @@ export default class Results extends Component {
 			<div>
 				<Search />
 				<Breadcrumb category={this.state.categories} />
-				<div id='results'>
-					<div className='wrapper'>
-						<div className='content'>
-							{list}
+				<main>
+					<section id='results'>
+						<div className='wrapper'>
+							<div className='content'>
+								{list}
+							</div>
 						</div>
-					</div>
-				</div>
+					</section>
+				</main>
 			</div>
 		)
 	}
@@ -52,7 +54,7 @@ export default class Results extends Component {
 class ShowDetail extends Component {
   render () {
     return (
-			<div className='result'>
+			<article className='result'>
 				<a href={'/items/' + this.props.product.id} className='table'>
 					<img src={this.props.product.picture} />
 					<div className='text'>
@@ -60,11 +62,11 @@ class ShowDetail extends Component {
 							<span data-currency-code={this.props.product.price.currency}>$</span> {this.props.product.price.amount}
 							<div className={'shipping-' + this.props.product.free_shipping}></div>
 						</div>
-						<div className='title'>{this.props.product.title}</div>
+						<h2 className='title'>{this.props.product.title}</h2>
 					</div>
-					<div className='state-name'>{this.props.product.state_name}</div>
+					<address className='state-name'>{this.props.product.state_name}</address>
 				</a>
-			</div>
+			</article>
 		)
   }
 }

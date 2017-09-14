@@ -5,9 +5,9 @@ import styles from './index.sass'
 export default class Search extends Component {
 	render() {
 		return (
-			<div id='search'>
+			<header id='search'>
 				<div className='wrapper'>
-					<div className='content table'>
+					<nav className='content table'>
 						<div className='logo'>
 							<a href='/'><img src='/public/Logo_ML@2x.png' /></a>
 						</div>
@@ -15,9 +15,9 @@ export default class Search extends Component {
 							<input type='text' name='search' placeholder='Nunca dejes de buscar' />
 							<button type='submit' />
 						</form>
-					</div>
+					</nav>
 				</div>
-			</div>
+			</header>
 		)
 	}
 }
