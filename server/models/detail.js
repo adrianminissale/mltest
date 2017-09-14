@@ -19,6 +19,7 @@ module.exports = function (data) {
     'condition': product.condition,
     'free_shipping': product.shipping.free_shipping,
     'sold_quantity': product.sold_quantity,
-    'description': description.text
+    'description': description.text,
+    'description_plain': description.plain_text,
   }
 }

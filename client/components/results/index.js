@@ -57,11 +57,12 @@ class ShowDetail extends Component {
 					<img src={this.props.product.picture} />
 					<div className='text'>
 						<div className='price'>
-							{this.props.product.price.currency} {this.props.product.price.amount}
+							<span data-currency-code={this.props.product.price.currency}>$</span> {this.props.product.price.amount}
 							<div className={'shipping-' + this.props.product.free_shipping}></div>
 						</div>
 						<div className='title'>{this.props.product.title}</div>
 					</div>
+					<div className='state-name'>{this.props.product.state_name}</div>
 				</a>
 			</div>
 		)
